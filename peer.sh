@@ -1,5 +1,6 @@
 SERVER=$1
 ORG=$2
+export IMAGE_TAG=latest
 cd peer
 docker-compose -f peer$SERVER.org$ORG.ulaw.com.yaml down
 docker-compose -f peer$SERVER.org$ORG.ulaw.com.yaml up -d

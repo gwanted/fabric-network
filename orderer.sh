@@ -1,5 +1,6 @@
 MODE=$1
 SERVER=$2
+export IMAGE_TAG=latest
 if [ "${MODE}" == "zookeeper" ]; then
 cd zookeeper
 docker-compose -f zookeeper$SERVER.ulaw.com.yaml down
