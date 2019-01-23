@@ -1,0 +1,22 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+kafka-base:
+    image: hyperledger/fabric-kafka:$IMAGE_TAG
+    restart: always
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      - GODEBUG=netdns=go
+      - KAFKA_MESSAGE_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+    ports:
+      - 9092:9092
+      - 9093:9093
+      - 9094:9094

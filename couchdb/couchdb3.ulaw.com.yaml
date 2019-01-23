@@ -1,0 +1,15 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  couchdb3.ulaw.com:
+    extends:
+      file:   ../base/couchdb-base.yaml
+      service: couchdb-base
+    container_name: couchdb3.ulaw.com
+    ports:
+      - "5984:5984"

@@ -7,8 +7,8 @@ version: '2'
 
 services:
 
-  orderer.ulaw.com:
-    container_name: orderer.ulaw.com
+  orderer1.ulaw.com:
+    container_name: orderer1.ulaw.com
     image: hyperledger/fabric-orderer:$IMAGE_TAG
     extends:
       file: base.yaml
@@ -36,6 +36,96 @@ services:
     - orderer.ulaw.com:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
+
+  orderer2.ulaw.com:
+    container_name: orderer2.ulaw.com
+    image: hyperledger/fabric-orderer:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      - FABRIC_LOGGING_SPEC=INFO
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_KAFKA_TOPIC_REPLICATIONFACTOR=1
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+    - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/tls/:/var/hyperledger/orderer/tls
+    - orderer.ulaw.com:/var/hyperledger/production/orderer
+    ports:
+      - 8050:7050
+
+    orderer3.ulaw.com:
+    container_name: orderer3.ulaw.com
+    image: hyperledger/fabric-orderer:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      - FABRIC_LOGGING_SPEC=INFO
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_KAFKA_TOPIC_REPLICATIONFACTOR=1
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+    - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/tls/:/var/hyperledger/orderer/tls
+    - orderer.ulaw.com:/var/hyperledger/production/orderer
+    ports:
+      - 9050:7050
+
+  orderer4.ulaw.com:
+    container_name: orderer4.ulaw.com
+    image: hyperledger/fabric-orderer:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      - FABRIC_LOGGING_SPEC=INFO
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_KAFKA_TOPIC_REPLICATIONFACTOR=1
+      - ORDERER_KAFKA_VERBOSE=true
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+    - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/tls/:/var/hyperledger/orderer/tls
+    - orderer.ulaw.com:/var/hyperledger/production/orderer
+    ports:
+      - 10050:7050
 
   peer0.org1.ulaw.com:
     container_name: peer0.org1.ulaw.com

@@ -1,0 +1,19 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  kafka1.ulaw.com:
+    container_name: kafka1.ulaw.com
+    hostname: 'kafka1.ulaw.com'
+    extends:
+      file: ../base/kafka-base.yaml
+      service: kafka-base
+    environment:
+      - KAFKA_BROKER_ID=0
+      - KAFKA_MIN_INSYNC_REPLICAS=2
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1.ulaw.com:2181,zookeeper2.ulaw.com:2181,zookeeper3.ulaw.com:2181

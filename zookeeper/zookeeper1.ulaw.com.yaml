@@ -1,0 +1,16 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  zookeeper1.ulaw.com:
+    container_name: zookeeper1.ulaw.com
+    extends:
+      file: ../base/zookeeper-base.yaml
+      service: zookeeper-base
+    environment:
+      - ZOO_SERVERS=server.1=0.0.0.0:2888:3888 server.2=zookeeper2.ulaw.com:2888:3888 server.3=zookeeper3.ulaw.com:2888:3888
+      - ZOO_MY_ID=1
