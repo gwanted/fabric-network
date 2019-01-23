@@ -15,4 +15,4 @@ services:
     - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
     - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp:/var/hyperledger/orderer/msp
     - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/tls/:/var/hyperledger/orderer/tls
-    - orderer2.ulaw.com:/var/hyperledger/production/orderer
+    - ./orderer2.ulaw.com:/var/hyperledger/production/orderer
