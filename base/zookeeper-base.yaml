@@ -7,7 +7,7 @@ version: '2'
 
 services:
   zookeeper-base:
-    image: hyperledger/fabric-zookeeper:x86_64-0.4.6
+    image: hyperledger/fabric-zookeeper:$IMAGE_TAG
     restart: always
     extends:
       file: base.yaml
