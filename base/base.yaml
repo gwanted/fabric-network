@@ -1,0 +1,40 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  base:
+    image: busybox
+    volumes:
+      - /etc/localtime:/etc/localtime
+#      - /etc/timezone:/etc/timezone
+    environment:
+      - COLUMNS=500
+      - GODEBUG=netdns=go
+#    command: sh -c 'echo "base up"; sleep 999999999'
+    extra_hosts:
+      - "kafka1.ulaw.com:192.168.100.89"
+      - "kafka2.ulaw.com:192.168.100.91"
+      - "kafka3.ulaw.com:192.168.100.93"
+      - "kafka4.ulaw.com:192.168.100.94"
+
+      - "orderer1.ulaw.com:192.168.100.89"
+      - "orderer2.ulaw.com:192.168.100.91"
+      - "orderer3.ulaw.com:192.168.100.93"
+      - "orderer4.ulaw.com:192.168.100.94"
+
+      - "zookeeper1.ulaw.com:192.168.100.89"
+      - "zookeeper2.ulaw.com:192.168.100.91"
+      - "zookeeper3.ulaw.com:192.168.100.93"
+      - "zookeeper4.ulaw.com:192.168.100.94"
+
+
+      - "peer0.org1.ulaw.com:192.168.100.95"
+      - "peer1.org1.ulaw.com:192.168.100.95"
+
+      - "peer0.org2.ulaw.com:192.168.100.77"
+      - "peer1.org2.ulaw.com:192.168.100.77"
+    

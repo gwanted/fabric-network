@@ -14,24 +14,132 @@ networks:
   byfn:
 
 services:
-  zookeeper.ulaw.com:
-    container_name: zookeeper.ulaw.com
+  zookeeper1.ulaw.com:
+    container_name: zookeeper1.ulaw.com
     image: hyperledger/fabric-zookeeper:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
     environment:
       ZOOKEEPER_CLIENT_PORT: 32181
       ZOOKEEPER_TICK_TIME: 2000
     networks:
     - byfn
 
-  kafka.ulaw.com:
-    container_name: kafka.ulaw.com
+  zookeeper2.ulaw.com:
+    container_name: zookeeper2.ulaw.com
+    image: hyperledger/fabric-zookeeper:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 32181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+    - byfn
+
+  zookeeper3.ulaw.com:
+    container_name: zookeeper3.ulaw.com
+    image: hyperledger/fabric-zookeeper:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 32181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+    - byfn
+
+  zookeeper4.ulaw.com:
+    container_name: zookeeper4.ulaw.com
+    image: hyperledger/fabric-zookeeper:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 32181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+    - byfn
+
+  kafka1.ulaw.com:
+    container_name: kafka1.ulaw.com
     image: hyperledger/fabric-kafka:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
     depends_on:
-    - zookeeper.ulaw.com
+    - zookeeper1.ulaw.com
     environment:
       - KAFKA_BROKER_ID=1
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper.ulaw.com:2181
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1.ulaw.com:2181,zookeeper2.ulaw.com:2181,zookeeper3.ulaw.com:2181,zookeeper4.ulaw.com:2181
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka.ulaw.com:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_MESSAGE_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_LOG_RETENTION_MS=-1
+      - KAFKA_MIN_INSYNC_REPLICAS=1
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+    networks:
+    - byfn
+
+  kafka2.ulaw.com:
+    container_name: kafka2.ulaw.com
+    image: hyperledger/fabric-kafka:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    depends_on:
+    - zookeeper2.ulaw.com
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1.ulaw.com:2181,zookeeper2.ulaw.com:2181,zookeeper3.ulaw.com:2181,zookeeper4.ulaw.com:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka2.ulaw.com:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_MESSAGE_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_LOG_RETENTION_MS=-1
+      - KAFKA_MIN_INSYNC_REPLICAS=1
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+    networks:
+    - byfn
+
+  kafka3.ulaw.com:
+    container_name: kafka3.ulaw.com
+    image: hyperledger/fabric-kafka:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    depends_on:
+    - zookeeper3.ulaw.com
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1.ulaw.com:2181,zookeeper2.ulaw.com:2181,zookeeper3.ulaw.com:2181,zookeeper4.ulaw.com:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka3.ulaw.com:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_MESSAGE_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_LOG_RETENTION_MS=-1
+      - KAFKA_MIN_INSYNC_REPLICAS=1
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+    networks:
+    - byfn
+
+  kafka4.ulaw.com:
+    container_name: kafka4.ulaw.com
+    image: hyperledger/fabric-kafka:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
+    depends_on:
+    - zookeeper4.ulaw.com
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper1.ulaw.com:2181,zookeeper2.ulaw.com:2181,zookeeper3.ulaw.com:2181,zookeeper4.ulaw.com:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka4.ulaw.com:9092
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
       - KAFKA_MESSAGE_MAX_BYTES=1048576 # 1 * 1024 * 1024 B
       - KAFKA_REPLICA_FETCH_MAX_BYTES=1048576 # 1 * 1024 * 1024 B

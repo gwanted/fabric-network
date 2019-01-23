@@ -17,11 +17,35 @@ networks:
 
 services:
 
-  orderer.ulaw.com:
+  orderer1.ulaw.com:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.ulaw.com
-    container_name: orderer.ulaw.com
+      service: orderer1.ulaw.com
+    container_name: orderer1.ulaw.com
+    networks:
+      - byfn
+
+  orderer2.ulaw.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer2.ulaw.com
+    container_name: orderer2.ulaw.com
+    networks:
+      - byfn
+
+  orderer3.ulaw.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer3.ulaw.com
+    container_name: orderer3.ulaw.com
+    networks:
+      - byfn
+
+  orderer4.ulaw.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer4.ulaw.com
+    container_name: orderer4.ulaw.com
     networks:
       - byfn
 
@@ -60,6 +84,9 @@ services:
   cli:
     container_name: cli
     image: hyperledger/fabric-tools:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
     tty: true
     stdin_open: true
     environment:

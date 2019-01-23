@@ -61,6 +61,9 @@ services:
   Org3cli:
     container_name: Org3cli
     image: hyperledger/fabric-tools:$IMAGE_TAG
+    extends:
+      file: base.yaml
+      service: base
     tty: true
     stdin_open: true
     environment:
