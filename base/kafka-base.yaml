@@ -4,8 +4,8 @@
 #
 
 version: '2'
-
-kafka-base:
+services:
+  kafka-base:
     image: hyperledger/fabric-kafka:$IMAGE_TAG
     restart: always
     extends:
