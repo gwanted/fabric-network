@@ -12,9 +12,9 @@ peer1.org1.ulaw.com:
       service: peer-base
     environment:
       - CORE_PEER_ID=peer1.org1.ulaw.com
-      - CORE_PEER_ADDRESS=peer1.org1.ulaw.com:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.ulaw.com:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.ulaw.com:7051
+      - CORE_PEER_ADDRESS=peer1.org1.ulaw.com:8051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.ulaw.com:8051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.ulaw.com:8051
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3.ulaw.com:6984
@@ -28,3 +28,7 @@ peer1.org1.ulaw.com:
         - ../crypto-config/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/msp:/etc/hyperledger/fabric/msp
         - ../crypto-config/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/tls:/etc/hyperledger/fabric/tls
         - peer1.org1.ulaw.com:/var/hyperledger/production
+    ports:
+      - 8051:7051
+      - 8052:7052
+      - 8053:7053
