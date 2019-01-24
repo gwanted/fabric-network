@@ -9,7 +9,7 @@ services:
   peer1.org2.ulaw.com:
     container_name: peer1.org2.ulaw.com
     extends:
-      file: peer-base.yaml
+      file: ../base/peer-base.yaml
       service: peer-base
     environment:
       - CORE_PEER_ID=peer1.org2.ulaw.com
