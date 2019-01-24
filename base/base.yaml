@@ -37,4 +37,9 @@ services:
 
       - "peer0.org2.ulaw.com:192.168.100.77"
       - "peer1.org2.ulaw.com:192.168.100.77"
+
+      - "couchdb1.ulaw.com:192.168.100.95"
+      - "couchdb2.ulaw.com:192.168.100.95"
+      - "couchdb3.ulaw.com:192.168.100.77"
+      - "couchdb4.ulaw.com:192.168.100.77"
     
