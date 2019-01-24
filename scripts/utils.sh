@@ -6,7 +6,7 @@
 
 # This is a collection of bash functions used by different scripts
 
-ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp/tlscacerts/tlsca.ulaw.com-cert.pem
+ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/orderers/orderer1.ulaw.com/msp/tlscacerts/tlsca.ulaw.com-cert.pem
 PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer0.org1.ulaw.com/tls/ca.crt
 PEER0_ORG2_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer0.org2.ulaw.com/tls/ca.crt
 PEER0_ORG3_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer0.org3.ulaw.com/tls/ca.crt
@@ -24,7 +24,7 @@ verifyResult() {
 # Set OrdererOrg.Admin globals
 setOrdererGlobals() {
   CORE_PEER_LOCALMSPID="OrdererMSP"
-  CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp/tlscacerts/tlsca.ulaw.com-cert.pem
+  CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/orderers/orderer1.ulaw.com/msp/tlscacerts/tlsca.ulaw.com-cert.pem
   CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/users/Admin@ulaw.com/msp
 }
 
