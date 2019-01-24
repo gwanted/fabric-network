@@ -5,7 +5,8 @@
 
 version: '2'
 
-peer0.org1.ulaw.com:
+services:
+  peer0.org1.ulaw.com:
     container_name: peer0.org1.ulaw.com
     extends:
       file: peer-base.yaml
