@@ -13,6 +13,6 @@ services:
     container_name: orderer4.ulaw.com
     volumes:
     - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/msp:/var/hyperledger/orderer/msp
-    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer.ulaw.com/tls/:/var/hyperledger/orderer/tls
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer4.ulaw.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/ulaw.com/orderers/orderer4.ulaw.com/tls/:/var/hyperledger/orderer/tls
     - ./orderer4.ulaw.com:/var/hyperledger/production/orderer
