@@ -6,14 +6,14 @@
 version: '2'
 
 volumes:
-  orderer.ulaw.com:
+  orderer1.ulaw.com:
+  orderer2.ulaw.com:
+  orderer3.ulaw.com:
+  orderer4.ulaw.com:
   peer0.org1.ulaw.com:
   peer1.org1.ulaw.com:
   peer0.org2.ulaw.com:
   peer1.org2.ulaw.com:
-
-networks:
-  byfn:
 
 services:
 
@@ -22,64 +22,48 @@ services:
       file:   base/docker-compose-base.yaml
       service: orderer1.ulaw.com
     container_name: orderer1.ulaw.com
-    networks:
-      - byfn
 
   orderer2.ulaw.com:
     extends:
       file:   base/docker-compose-base.yaml
       service: orderer2.ulaw.com
     container_name: orderer2.ulaw.com
-    networks:
-      - byfn
 
   orderer3.ulaw.com:
     extends:
       file:   base/docker-compose-base.yaml
       service: orderer3.ulaw.com
     container_name: orderer3.ulaw.com
-    networks:
-      - byfn
 
   orderer4.ulaw.com:
     extends:
       file:   base/docker-compose-base.yaml
       service: orderer4.ulaw.com
     container_name: orderer4.ulaw.com
-    networks:
-      - byfn
-
+    
   peer0.org1.ulaw.com:
     container_name: peer0.org1.ulaw.com
     extends:
       file:  base/docker-compose-base.yaml
       service: peer0.org1.ulaw.com
-    networks:
-      - byfn
 
   peer1.org1.ulaw.com:
     container_name: peer1.org1.ulaw.com
     extends:
       file:  base/docker-compose-base.yaml
       service: peer1.org1.ulaw.com
-    networks:
-      - byfn
 
   peer0.org2.ulaw.com:
     container_name: peer0.org2.ulaw.com
     extends:
       file:  base/docker-compose-base.yaml
       service: peer0.org2.ulaw.com
-    networks:
-      - byfn
 
   peer1.org2.ulaw.com:
     container_name: peer1.org2.ulaw.com
     extends:
       file:  base/docker-compose-base.yaml
       service: peer1.org2.ulaw.com
-    networks:
-      - byfn
 
   cli:
     container_name: cli
@@ -111,10 +95,11 @@ services:
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
-      - orderer.ulaw.com
+      - orderer1.ulaw.com
+      - orderer2.ulaw.com
+      - orderer3.ulaw.com
+      - orderer4.ulaw.com
       - peer0.org1.ulaw.com
       - peer1.org1.ulaw.com
       - peer0.org2.ulaw.com
       - peer1.org2.ulaw.com
-    networks:
-      - byfn
