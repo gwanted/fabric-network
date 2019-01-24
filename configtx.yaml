@@ -209,9 +209,9 @@ Orderer: &OrdererDefaults
 
     Addresses:
         - orderer1.ulaw.com:7050
-        - orderer2.ulaw.com:8050
-        - orderer3.ulaw.com:9050
-        - orderer4.ulaw.com:10050
+        - orderer2.ulaw.com:7050
+        - orderer3.ulaw.com:7050
+        - orderer4.ulaw.com:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s
@@ -236,9 +236,9 @@ Orderer: &OrdererDefaults
         # NOTE: Use IP:port notation
         Brokers:
             - kafka1.ulaw.com:9092
-            - kafka2.ulaw.com:10092
-            - kafka3.ulaw.com:11092
-            - kafka4.ulaw.com:12092
+            - kafka2.ulaw.com:9092
+            - kafka3.ulaw.com:9092
+            - kafka4.ulaw.com:9092
 
     # Organizations is the list of orgs which are defined as participants on
     # the orderer side of the network
@@ -338,9 +338,9 @@ Profiles:
             Kafka:
                 Brokers:
                 - kafka1.ulaw.com:9092
-                - kafka1.ulaw.com:10092
-                - kafka1.ulaw.com:11092
-                - kafka1.ulaw.com:12092
+                - kafka1.ulaw.com:9092
+                - kafka1.ulaw.com:9092
+                - kafka1.ulaw.com:9092
 
             Organizations:
             - *OrdererOrg

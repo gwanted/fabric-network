@@ -12,6 +12,10 @@ OrdererOrgs:
   # ---------------------------------------------------------------------------
   - Name: Orderer
     Domain: ulaw.com
+    CA:
+        Country: CN
+        Province: GuangDong
+        Locality: GuangZhou
     # ---------------------------------------------------------------------------
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
@@ -30,6 +34,10 @@ PeerOrgs:
   - Name: Org1
     Domain: org1.ulaw.com
     EnableNodeOUs: true
+    CA:
+        Country: CN
+        Province: GuangDong
+        Locality: GuangZhou
     # ---------------------------------------------------------------------------
     # "Specs"
     # ---------------------------------------------------------------------------
@@ -51,6 +59,11 @@ PeerOrgs:
     #     CommonName: foo27.org5.ulaw.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
+    Specs:
+    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
+       - Hostname: peer0
+       - Hostname: peer1
     # ---------------------------------------------------------------------------
     # "Template"
     # ---------------------------------------------------------------------------
@@ -80,6 +93,15 @@ PeerOrgs:
   - Name: Org2
     Domain: org2.ulaw.com
     EnableNodeOUs: true
+    CA:
+        Country: CN
+        Province: GuangDong
+        Locality: GuangZhou
+    Specs:
+    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
+       - Hostname: peer0
+       - Hostname: peer1
     Template:
       Count: 2
     Users:
