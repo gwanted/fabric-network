@@ -30,7 +30,6 @@ services:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/msp:/etc/hyperledger/fabric/msp
         - ../crypto-config/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/tls:/etc/hyperledger/fabric/tls
-        - ./peer1.org1.ulaw.com:/var/hyperledger/production
     ports:
       - 8051:7051
       - 8052:7052

@@ -8,8 +8,11 @@
 
 ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/ulaw.com/orderers/orderer1.ulaw.com/msp/tlscacerts/tlsca.ulaw.com-cert.pem
 PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer0.org1.ulaw.com/tls/ca.crt
+PEER1_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/tls/ca.crt
 PEER0_ORG2_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer0.org2.ulaw.com/tls/ca.crt
+PEER1_ORG2_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer1.org2.ulaw.com/tls/ca.crt
 PEER0_ORG3_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer0.org3.ulaw.com/tls/ca.crt
+PEER1_ORG3_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer1.org3.ulaw.com/tls/ca.crt
 
 # verify the result of the end-to-end test
 verifyResult() {
@@ -33,30 +36,33 @@ setGlobals() {
   ORG=$2
   if [ $ORG -eq 1 ]; then
     CORE_PEER_LOCALMSPID="Org1MSP"
-    CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
     CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/users/Admin@org1.ulaw.com/msp
     if [ $PEER -eq 0 ]; then
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
       CORE_PEER_ADDRESS=peer0.org1.ulaw.com:7051
     else
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG1_CA
       CORE_PEER_ADDRESS=peer1.org1.ulaw.com:8051
     fi
   elif [ $ORG -eq 2 ]; then
-    CORE_PEER_LOCALMSPID="Org2MSP"
-    CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
+    CORE_PEER_LOCALMSPID="Org2MSP" 
     CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/users/Admin@org2.ulaw.com/msp
     if [ $PEER -eq 0 ]; then
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
       CORE_PEER_ADDRESS=peer0.org2.ulaw.com:7051
     else
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG2_CA
       CORE_PEER_ADDRESS=peer1.org2.ulaw.com:8051
     fi
 
   elif [ $ORG -eq 3 ]; then
     CORE_PEER_LOCALMSPID="Org3MSP"
-    CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
     CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/users/Admin@org3.ulaw.com/msp
     if [ $PEER -eq 0 ]; then
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
       CORE_PEER_ADDRESS=peer0.org3.ulaw.com:7051
     else
+      CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG3_CA
       CORE_PEER_ADDRESS=peer1.org3.ulaw.com:8051
     fi
   else
