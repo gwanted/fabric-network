@@ -17,7 +17,7 @@ VERBOSE="false"
 COUNTER=1
 MAX_RETRY=10
 
-CC_SRC_PATH="github.com/chaincode/chaincode_example02/go/"
+CC_SRC_PATH="/opt/gopath/src/github.com/chaincode/chaincode_example02/go/"
 
 echo "Channel name : "$CHANNEL_NAME
 
