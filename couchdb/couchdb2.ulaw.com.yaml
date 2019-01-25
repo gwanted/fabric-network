@@ -11,5 +11,3 @@ services:
       file:   ../base/couchdb-base.yaml
       service: couchdb-base
     container_name: couchdb2.ulaw.com
-    ports:
-      - "6984:5984"
