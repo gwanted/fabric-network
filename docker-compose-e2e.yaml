@@ -6,11 +6,11 @@
 version: '2'
 
 services:
-  ca.ulaw.com:
+  ca.org1.ulaw.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca.ulaw.com
+      - FABRIC_CA_SERVER_CA_NAME=ca.org1.ulaw.com
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.ulaw.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/b90ce6c0291776c0ac4092b1ec42d250d142ca2ebd701bab50f1970402b6fff0_sk
@@ -19,4 +19,4 @@ services:
     command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.ulaw.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/b90ce6c0291776c0ac4092b1ec42d250d142ca2ebd701bab50f1970402b6fff0_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/org1.ulaw.com/ca/:/etc/hyperledger/fabric-ca-server-config
-    container_name: ca.ulaw.com
+    container_name: ca.org1.ulaw.com
