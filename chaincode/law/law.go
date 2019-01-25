@@ -8,7 +8,7 @@ import (
 
 	"encoding/json"
 	"time"
-	"strconv"
+	// "strconv"
 	"bytes"
 	"strings"
 )
@@ -68,8 +68,7 @@ func (s *LawChaincode) addLaw(stub shim.ChaincodeStubInterface, args []string) p
 	}
 
 	t := time.Now()
-	id := prefix + strconv.FormatInt(t.UnixNano(), 10)
-	law.LawNumber = id
+	id := law.LawNumber
 	law.Time = t.Unix()
 
 	bys, err := json.Marshal(law)
