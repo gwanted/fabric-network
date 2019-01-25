@@ -96,6 +96,7 @@ func (s *LawChaincode) get(stub shim.ChaincodeStubInterface, args []string) peer
 	if err != nil {
 		return shim.Error(err.Error())
 	}
+	fmt.Println("json:" + string(value))
 
 	var c Law
 	err = json.Unmarshal(value, &c)
