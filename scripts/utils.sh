@@ -44,7 +44,7 @@ setGlobals() {
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer0.org1.ulaw.com/tls/server.key
     else
       CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG1_CA
-      CORE_PEER_ADDRESS=peer1.org1.ulaw.com:8051
+      CORE_PEER_ADDRESS=peer1.org1.ulaw.com:7051
       CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/tls/server.crt
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.ulaw.com/peers/peer1.org1.ulaw.com/tls/server.key
     fi
@@ -58,7 +58,7 @@ setGlobals() {
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer0.org2.ulaw.com/tls/server.key
     else
       CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG2_CA
-      CORE_PEER_ADDRESS=peer1.org2.ulaw.com:8051
+      CORE_PEER_ADDRESS=peer1.org2.ulaw.com:7051
       CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer1.org2.ulaw.com/tls/server.crt
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.ulaw.com/peers/peer1.org2.ulaw.com/tls/server.key
     fi
@@ -73,7 +73,7 @@ setGlobals() {
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer0.org3.ulaw.com/tls/server.key
     else
       CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG3_CA
-      CORE_PEER_ADDRESS=peer1.org3.ulaw.com:8051
+      CORE_PEER_ADDRESS=peer1.org3.ulaw.com:7051
       CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer0.org3.ulaw.com/tls/server.crt
       CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.ulaw.com/peers/peer0.org3.ulaw.com/tls/server.key
     fi
