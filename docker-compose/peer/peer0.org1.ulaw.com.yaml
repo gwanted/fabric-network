@@ -6,21 +6,21 @@
 version: '2'
 
 services:
-  peer0.org2.ulaw.com:
-    container_name: peer0.org2.ulaw.com
+  peer0.org1.ulaw.com:
+    container_name: peer0.org1.ulaw.com
     extends:
       file: ../base/peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.org2.ulaw.com
-      - CORE_PEER_ADDRESS=peer0.org2.ulaw.com:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.ulaw.com:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.ulaw.com:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org2.ulaw.com:7052
+      - CORE_PEER_ID=peer0.org1.ulaw.com
+      - CORE_PEER_ADDRESS=peer0.org1.ulaw.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.ulaw.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.ulaw.com:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.ulaw.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_LOCALMSPID=Org2MSP
+      - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3.ulaw.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1.ulaw.com:5984
       # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
       # provide the credentials for ledger to connect to CouchDB.  The username and password must
       # match the username and password set for the associated CouchDB.
@@ -28,5 +28,5 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.ulaw.com/peers/peer0.org2.ulaw.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.ulaw.com/peers/peer0.org2.ulaw.com/tls:/etc/hyperledger/fabric/tls
+        - ../../artifacts/crypto-config/peerOrganizations/org1.ulaw.com/peers/peer0.org1.ulaw.com/msp:/etc/hyperledger/fabric/msp
+        - ../../artifacts/crypto-config/peerOrganizations/org1.ulaw.com/peers/peer0.org1.ulaw.com/tls:/etc/hyperledger/fabric/tls

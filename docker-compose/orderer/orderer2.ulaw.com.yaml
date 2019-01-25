@@ -1,0 +1,17 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  orderer2.ulaw.com:
+    extends:
+      file:   ../base/orderer-base.yaml
+      service: orderer-base
+    container_name: orderer2.ulaw.com
+    volumes:
+    - ../../artifacts/channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../../artifacts/crypto-config/ordererOrganizations/ulaw.com/orderers/orderer2.ulaw.com/msp:/var/hyperledger/orderer/msp
+    - ../../artifacts/crypto-config/ordererOrganizations/ulaw.com/orderers/orderer2.ulaw.com/tls/:/var/hyperledger/orderer/tls

@@ -18,5 +18,5 @@ services:
       - "7054:7054"
     command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.ulaw.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/b90ce6c0291776c0ac4092b1ec42d250d142ca2ebd701bab50f1970402b6fff0_sk -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/org1.ulaw.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ../../artifacts/crypto-config/peerOrganizations/org1.ulaw.com/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca.org1.ulaw.com
