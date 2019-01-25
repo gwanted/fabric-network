@@ -22,12 +22,13 @@ type LawChaincode struct {
 type Law struct {
 	LawNumber          string `json:"lawNumber"`//编号
 	LawTitle   		   string `json:"lawTitle"`//标题
+	BlockNumber        string `json:"blockNumber"`//区块号
 	LawOrg             string `json:"lawOrg"`//颁布机构
 	PublishTime        int64  `json:"publishTime"`//颁布时间
 	ImplementationTime int64  `json:"implementationTime"`//施行时间
 	Time               int64  `json:"time"`//创建时间
 	LawHash            string `json:"lawHash"`//hash
-	File               string `json:"file"`//文件名
+	File               string `json:"file"`//文件
 	FileAddress        string `json:"fileAddress"`//下载地址
 }
 
