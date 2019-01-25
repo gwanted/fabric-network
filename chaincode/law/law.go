@@ -100,14 +100,14 @@ func (s *LawChaincode) get(stub shim.ChaincodeStubInterface, args []string) peer
 	var c Law
 	err = json.Unmarshal(value, &c)
 	if err != nil {
-		return shim.Error("json反序列化失败")
+		return shim.Error("json unmarshal failed "+err.Error())
 	}
 	//截取一半hash
 	c.LawHash = c.LawHash[:len(c.LawHash)/2]
 
 	law,err := json.Marshal(c)
 	if err != nil{
-		return shim.Error("json序列化失败")
+		return shim.Error("json marshal failed "+err.Error())
 	}
 
 	return shim.Success(law)
